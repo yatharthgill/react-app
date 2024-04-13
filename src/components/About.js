@@ -1,21 +1,25 @@
-import { useState } from "react";
+// import { useState } from "react";
 
-export default function About() {
-    const [myStyle, setStyle] = useState({ color: 'white', backgroundColor: 'black' });
-    const [btnText, setBtnText] = useState("Enable Light Mode");
-    const [btnStyle, setBtnStyle] = useState({ color: 'black', backgroundColor: 'white' });
+export default function About(props) {
+    // const [myStyle, setStyle] = useState({ color: 'white', backgroundColor: 'black' });
+    // const [btnText, setBtnText] = useState("Enable Light Mode");
+    // const [btnStyle, setBtnStyle] = useState({ color: 'black', backgroundColor: 'white' });
 
-    const toggleStyle = () => {
-        if (myStyle.color === 'white') {
-            setStyle({ color: 'black', backgroundColor: 'white' });
-            setBtnStyle({ color: 'white', backgroundColor: 'black' });
-            setBtnText("Enable Dark Mode");
-        } else {
-            setStyle({ color: 'white', backgroundColor: 'black' });
-            setBtnStyle({ color: 'black', backgroundColor: 'white' });
-            setBtnText("Enable Light Mode");
-        }
-    };
+    // const toggleStyle = () => {
+    //     if (myStyle.color === 'white') {
+    //         setStyle({ color: 'black', backgroundColor: 'white' });
+    //         setBtnStyle({ color: 'white', backgroundColor: 'black' });
+    //         setBtnText("Enable Dark Mode");
+    //     } else {
+    //         setStyle({ color: 'white', backgroundColor: 'black' });
+    //         setBtnStyle({ color: 'black', backgroundColor: 'white' });
+    //         setBtnText("Enable Light Mode");
+    //     }
+    // };
+    let myStyle={
+        color:props.mode==='dark'?'white':'rgb(4, 39, 67)',
+        backgroundColor:props.mode==='dark'?'rgb(4, 39, 67)':'white',
+    }
 
     return (
         <div className="container" style={myStyle}>
@@ -30,6 +34,7 @@ export default function About() {
                             data-bs-target="#collapseOne"
                             aria-expanded="true"
                             aria-controls="collapseOne"
+                            style={myStyle}
                         >
                             Accordion Item #1
                         </button>
@@ -59,6 +64,7 @@ export default function About() {
                             data-bs-target="#collapseTwo"
                             aria-expanded="false"
                             aria-controls="collapseTwo"
+                            style={myStyle}
                         >
                             Accordion Item #2
                         </button>
@@ -88,6 +94,7 @@ export default function About() {
                             data-bs-target="#collapseThree"
                             aria-expanded="false"
                             aria-controls="collapseThree"
+                            style={myStyle}
                         >
                             Accordion Item #3
                         </button>
@@ -109,7 +116,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <button onClick={toggleStyle} className="btn my-3" style={btnStyle}>{btnText}</button>
+            {/* <button onClick={toggleStyle} className="btn my-3" style={btnStyle}>{btnText}</button> */}
         </div>
     );
 }

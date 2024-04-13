@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import { Route } from 'react-router-dom';
 
 export default function TextForm(props) {
   const [text, setText] = useState('');
+
 
   const handleUpClick = () => {
     let newText = text.toUpperCase();
@@ -45,7 +45,7 @@ export default function TextForm(props) {
             id="mybox"
             rows="8"
             style={{
-              backgroundColor: props.mode === 'light' ? 'white' : 'grey',
+              backgroundColor: props.mode === 'light' ? 'white' : '#1c2839',
               color: props.mode === 'light' ? 'black' : 'white'
             }}
           ></textarea>
@@ -57,14 +57,11 @@ export default function TextForm(props) {
       </div>
       <div className="container my-3">
         <h1>Your Text Summary</h1>
-        <p>Number of Words: {text.split(" ").length}, Number of Letters: {text.length}</p>
-        <p>{0.008 * text.split(" ").length} Minutes to read this</p>
+        <p>Number of Words: {text.split(/\s+/).filter((elem)=>{return elem.length!==0}).length}, Number of Letters: {text.length}</p>
+        <p>{0.008 * text.split(/\s+/).filter((elem)=>{return elem.length!==0}).length} Minutes to read this</p>
         <h1>Preview</h1>
         <p>{text.length > 0 ? text : 'Enter Something in the above textbox'}</p>
       </div>
     </>
   );
 }
-
-// Wrap the TextForm component with Route
-/*{ <Route exact path="/text-form" element={<TextForm />} /> }*/

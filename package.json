@@ -1,6 +1,6 @@
 {
-  "homepage": "https://yatharthgill.github.io/myapp",
-  "name": "myapp",
+  "homepage": "https://yatharthgill.github.io/react-app",
+  "name": "react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
